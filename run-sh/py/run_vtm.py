@@ -13,15 +13,15 @@ confs = ["encoder_randomaccess_vtm.cfg"]
 minqs = [8,16,32]
 
 OPT = 1 # optimizacoes ligadas = 1
-gprof = 0
+gprof = 1
 
 taps = 8
 
 threads = 4 # numero de processos em parelelo
 
-#yuvs=[Tennis_1920x1080_24.yuv","ParkScene_1920x1080_24.yuv","Kimono_1920x1080_24.yuv","PeopleOnStreet_2560x1600_30_crop.yuv","Traffic_2560x1600_30_crop.yuv"]#OLD
+#yuvs=["Tennis_1920x1080_24.yuv","ParkScene_1920x1080_24.yuv","Kimono_1920x1080_24.yuv","PeopleOnStreet_2560x1600_30_crop.yuv","Traffic_2560x1600_30_crop.yuv"]#OLD
 
-#yuvs = ["BasketballPass_416x240_50fps_8bit_420.yuv","BasketballDrillText_832x480_50fps_8bit_420.yuv","SlideShow_1280x720_20fps_8bit_420.yuv","Cactus_1920x1080_50fps_8bit_420.yuv","Campfire_3840x2160_30fps_10bit_420.yuv"] #gprofiling
+yuvs = ["Campfire_3840x2160_30fps_10bit_420.yuv", "DaylightRoad2_3840x2160_60fps_10bit_420.yuv","Cactus_1920x1080_50.yuv","BQMall_832x480_60.yuv","BasketballPass_416x240_50.yuv","FourPeople_1280x720_60.yuv","BasketballDrillText_832x480_50fps_8bit_420.yuv",] #gprofiling
 
 #yuvs=["Campfire_3840x2160_30fps_10bit_420.yuv","FoodMarket4_3840x2160_60fps_10bit_420.yuv","Tango2_3840x2160_60fps_10bit_420.yuv"]#ClasseA1
 
@@ -44,7 +44,7 @@ threads = 4 # numero de processos em parelelo
 
 #yuvs = ["RaceHorses_832x480_30.yuv","BasketballDrill_832x480_50.yuv","BQMall_832x480_60.yuv","PartyScene_832x480_50.yuv","BlowingBubbles_416x240_50.yuv","BQSquare_416x240_60.yuv","BasketballPass_416x240_50.yuv","RaceHorses_416x240_30.yuv","BasketballDrive_1920x1080_50.yuv","BQTerrace_1920x1080_60.yuv","Cactus_1920x1080_50.yuv","MarketPlace_1920x1080_60fps_10bit_420.yuv","RitualDance_1920x1080_60fps_10bit_420.yuv","ArenaOfValor_1920x1080_60fps_8bit_420.yuv","BasketballDrillText_832x480_50fps_8bit_420.yuv","SlideShow_1280x720_20fps_8bit_420.yuv","Campfire_3840x2160_30fps_10bit_420.yuv","FourPeople_1280x720_60.yuv","Johnny_1280x720_60.yuv","KristenAndSara_1280x720_60fps_8bit_420.yuv","FoodMarket4_3840x2160_60fps_10bit_420.yuv","Tango2_3840x2160_60fps_10bit_420.yuv","SlideEditing_1280x720_30.yuv","ParkRunning3_3840x2160_50fps_10bit_420.yuv","CatRobot_3840x2160_60fps_10bit_420.yuv","DaylightRoad2_3840x2160_60fps_10bit_420.yuv"]	#VVC
 
-yuvs=["FourPeople_1280x720_60.yuv","Johnny_1280x720_60.yuv","KristenAndSara_1280x720_60fps_8bit_420.yuv","FoodMarket4_3840x2160_60fps_10bit_420.yuv","Tango2_3840x2160_60fps_10bit_420.yuv","SlideEditing_1280x720_30.yuv","ParkRunning3_3840x2160_50fps_10bit_420.yuv","CatRobot_3840x2160_60fps_10bit_420.yuv","DaylightRoad2_3840x2160_60fps_10bit_420.yuv"] #test
+#yuvs=["FourPeople_1280x720_60.yuv","Johnny_1280x720_60.yuv","KristenAndSara_1280x720_60fps_8bit_420.yuv","FoodMarket4_3840x2160_60fps_10bit_420.yuv","Tango2_3840x2160_60fps_10bit_420.yuv","SlideEditing_1280x720_30.yuv","ParkRunning3_3840x2160_50fps_10bit_420.yuv","CatRobot_3840x2160_60fps_10bit_420.yuv","DaylightRoad2_3840x2160_60fps_10bit_420.yuv"] #test
 
 #homepath = "/home/icaro"
 #yuvpath = "/home/icaro/Videos"
@@ -57,13 +57,16 @@ yuvs=["FourPeople_1280x720_60.yuv","Johnny_1280x720_60.yuv","KristenAndSara_1280
 
 homepath = "/home/grellert"
 
-yuvvvc = "%s/videos/vvc_sets"%homepath
-yuvhevc = "/videos"
+#yuvh = "%s/videos/vvc_sets"%homepath
+yuvh = "%s/yuv_vtm"%homepath
+yuvr = "%s/yuv_vtm"%homepath
+#yuvr = "/videos"
 
 outpath = "%s/output_VTM"%homepath
 
 #encpath = "%s/encoders/vtm10.0"%homepath
-encpath = "%s/encoders/vvc_10.0_approx"%homepath
+encpath = "%s/vtm10.1"%homepath
+#encpath = "%s/encoders/vvc_10.0_approx"%homepath
 
 confpath = "%s/cfg"%encpath
 binpath = "%s/bin"%encpath
@@ -185,7 +188,7 @@ for conf in confs:
 				"CatRobot_3840x2160_60fps_10bit_420.yuv",
 				"DaylightRoad2_3840x2160_60fps_10bit_420.yuv"]:
 
-				linha = "%s/%s -c %s/%s -i \"%s/%s\" -fr %s -wdt %s -hgt %s -q %s -f %s --InputBitDepth=%s %s --SIMD=%s -b \"%s/bin/%s_%s.bin\" "%(binpath,bina,confpath,conf,yuvvvc,yuv,fr,w,h,qp,f,b,taps,simd,outpath,nome,info) # Linha de configuracao da codificacao
+				linha = "%s/%s -c %s/%s -i \"%s/%s\" -fr %s -wdt %s -hgt %s -q %s -f %s --InputBitDepth=%s %s --SIMD=%s -b \"%s/bin/%s_%s.bin\" "%(binpath,bina,confpath,conf,yuvh,yuv,fr,w,h,qp,f,b,taps,simd,outpath,nome,info) # Linha de configuracao da codificacao
 
 			elif yuv in ["RaceHorses_832x480_30.yuv",
 				"BasketballDrill_832x480_50.yuv",
@@ -202,9 +205,9 @@ for conf in confs:
 				"Johnny_1280x720_60.yuv",
 				"SlideEditing_1280x720_30.yuv"]:
 
-				linha = "%s/%s -c %s/%s -i \"%s/%s\" -fr %s -wdt %s -hgt %s -q %s -f %s --InputBitDepth=%s %s --SIMD=%s -b \"%s/bin/%s_%s.bin\" "%(binpath,bina,confpath,conf,yuvhevc,yuv,fr,w,h,qp,f,b,taps,simd,outpath,nome,info) # Linha de configuracao da codificacao
+				linha = "%s/%s -c %s/%s -i \"%s/%s\" -fr %s -wdt %s -hgt %s -q %s -f %s --InputBitDepth=%s %s --SIMD=%s -b \"%s/bin/%s_%s.bin\" "%(binpath,bina,confpath,conf,yuvr,yuv,fr,w,h,qp,f,b,taps,simd,outpath,nome,info) # Linha de configuracao da codificacao
 
-			linha1 = "> %s/out/%s_%s.txt"%(outpath,nome,info) # linha da saida da codificacao
+			linha1 = "> %s/gprof/out/%s_%s.txt"%(outpath,nome,info) # linha da saida da codificacao
 
 			# linhas do profiling
 			linha2 = "mv gmon.out %s/gmon/gmon_%s_%s.out"%(outpath,nome,info)
