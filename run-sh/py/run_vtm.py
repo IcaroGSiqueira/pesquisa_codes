@@ -12,7 +12,7 @@ confs = ["encoder_randomaccess_vtm.cfg"]
 
 minqs = [8,16,32]
 
-OPT = 1 # optimizacoes ligadas = 1
+OPT = 0 # optimizacoes ligadas = 1
 gprof = 1
 
 taps = 8
@@ -216,8 +216,9 @@ for conf in confs:
 
 			linha4 =  "echo \"%s_%s DONE!\""%(nome,info)
 
-			#VERIFICAR SOBRESCRICAO
 			if gprof == 1:
+				#VERIFICAR SOBRESCRICAO
+				'''
 				try:
 					test = open("%s/%s"%(shpath,filename),"r")
 					tlines = test.readlines()
@@ -225,7 +226,8 @@ for conf in confs:
 					if linha not in tline:
 						file.write(linha + linha1 + " && " + linha4 + "\n")
 				except:
-					file.write(linha + linha1 + " && " + linha2 + " && " + linha3 + " && " + linha4 + "\n")
+					'''
+				file.write(linha + linha1 + " && " + linha2 + " && " + linha3 + " && " + linha4 + "\n")
 
 			else:	
 				try:
