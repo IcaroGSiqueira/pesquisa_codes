@@ -12,7 +12,7 @@ confs = ["encoder_randomaccess_vtm.cfg"]
 
 minqs = [8,16,32]
 
-OPT = 1 # optimizacoes ligadas = 1
+OPT = 0 # optimizacoes ligadas = 1
 gprof = 1
 
 taps = 8
@@ -57,15 +57,15 @@ yuvs=["Campfire_3840x2160_30fps_10bit_420.yuv","DaylightRoad2_3840x2160_60fps_10
 
 homepath = "/home/grellert"
 
-yuvh = "%s/videos/vvc_sets"%homepath
-#yuvh = "%s/yuv_vtm"%homepath
-#yuvr = "%s/yuv_vtm"%homepath
-yuvr = "/videos"
+#yuvh = "%s/videos/vvc_sets"%homepath
+yuvh = "%s/yuv_vtm"%homepath
+yuvr = "%s/yuv_vtm"%homepath
+#yuvr = "/videos"
 
 outpath = "%s/output_VTM"%homepath
 
-encpath = "%s/encoders/vtm10.0"%homepath
-#encpath = "%s/vtm10.1"%homepath
+#encpath = "%s/encoders/vtm10.0"%homepath
+encpath = "%s/vtm10.1"%homepath
 #encpath = "%s/encoders/vvc_10.0_approx"%homepath
 
 confpath = "%s/cfg"%encpath
