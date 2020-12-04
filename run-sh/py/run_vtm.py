@@ -2,8 +2,6 @@ import os
 
 f = 32 # numero de frames
 
-#[37,32,27,22]
-
 qps = [22,27,32,37]
 
 #confs = ["encoder_randomaccess_vtm.cfg","encoder_lowdelay_vtm.cfg","encoder_intra_vtm.cfg"]
@@ -18,10 +16,6 @@ gprof = 1
 taps = 8
 
 threads = 4 # numero de processos em parelelo
-
-#yuvs=["Tennis_1920x1080_24.yuv","ParkScene_1920x1080_24.yuv","Kimono_1920x1080_24.yuv","PeopleOnStreet_2560x1600_30_crop.yuv","Traffic_2560x1600_30_crop.yuv"]#OLD
-
-#yuvs = ["Cactus_1920x1080_50.yuv","BQMall_832x480_60.yuv","BasketballPass_416x240_50.yuv","FourPeople_1280x720_60.yuv","BasketballDrillText_832x480_50fps_8bit_420.yuv","Campfire_3840x2160_30fps_10bit_420.yuv", "DaylightRoad2_3840x2160_60fps_10bit_420.yuv"] #gprofiling
 
 #yuvs=["Campfire_3840x2160_30fps_10bit_420.yuv","FoodMarket4_3840x2160_60fps_10bit_420.yuv","Tango2_3840x2160_60fps_10bit_420.yuv"]#ClasseA1
 
@@ -38,6 +32,7 @@ threads = 4 # numero de processos em parelelo
 #yuvs=[ArenaOfValor_1920x1080_60fps_8bit_420.yuv,"BasketballDrillText_832x480_50fps_8bit_420.yuv","SlideShow_1280x720_20fps_8bit_420.yuv","SlideEditing_1280x720_30.yuv"]#ClasseF
 
 
+
 #yuvsvvc = ["MarketPlace_1920x1080_60fps_10bit_420.yuv","RitualDance_1920x1080_60fps_10bit_420.yuv","ArenaOfValor_1920x1080_60fps_8bit_420.yuv","SlideShow_1280x720_20fps_8bit_420.yuv","Campfire_3840x2160_30fps_10bit_420.yuv","KristenAndSara_1280x720_60fps_8bit_420.yuv","Tango2_3840x2160_60fps_10bit_420.yuv","ParkRunning3_3840x2160_50fps_10bit_420.yuv"]#,"CatRobot_3840x2160_60fps_10bit_420.yuv","DaylightRoad2_3840x2160_60fps_10bit_420.yuv","BasketballDrillText_832x480_50fps_8bit_420.yuv","FoodMarket4_3840x2160_60fps_10bit_420.yuv"]	#VVC
 
 #yuvshevc = ["RaceHorses_832x480_30.yuv","BasketballDrill_832x480_50.yuv","BQMall_832x480_60.yuv","PartyScene_832x480_50.yuv","BlowingBubbles_416x240_50.yuv","BQSquare_416x240_60.yuv","BasketballPass_416x240_50.yuv","RaceHorses_416x240_30.yuv","BasketballDrive_1920x1080_50.yuv","BQTerrace_1920x1080_60.yuv","Cactus_1920x1080_50.yuv","FourPeople_1280x720_60.yuv","Johnny_1280x720_60.yuv","SlideEditing_1280x720_30.yuv"]	#VVC_HEVC
@@ -46,27 +41,12 @@ threads = 4 # numero de processos em parelelo
 
 yuvs=["Cactus_1920x1080_50.yuv","BasketballDrillText_832x480_50fps_8bit_420.yuv"] #test
 
-#homepath = "/home/icaro"
-#yuvpath = "/home/icaro/Videos"
-#outpath = "output_VTM"
-#encpath = "vtm9.1"
-#confpath = "%s/cfg"%encpath
-#binpath = "%s/bin"%encpath #partindo da homepath
-#shpath = "%s/Documents/pesquisa/common_research/codes/run-sh/vtm"%homepath
+yuvh = "/videos"
+yuvr = "/home/grellert/yuvs_vtm"
 
+outpath = "/home/grellert/output_VTM"
 
-homepath = "/home/grellert"
-
-#yuvh = "%s/videos/vvc_sets"%homepath
-yuvh = "%s/yuvs_vtm"%homepath
-yuvr = "%s/yuvs_vtm"%homepath
-#yuvr = "/videos"
-
-outpath = "%s/output_VTM"%homepath
-
-#encpath = "%s/encoders/vtm10.0"%homepath
-encpath = "%s/vtm10.1"%homepath
-#encpath = "%s/encoders/vvc_10.0_approx"%homepath
+encpath = "/home/grellert/vtm10.1"
 
 confpath = "%s/cfg"%encpath
 binpath = "%s/bin"%encpath
